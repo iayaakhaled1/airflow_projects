@@ -10,9 +10,9 @@
   SELECT
     'time_difference_test' AS test_id,
     CASE
-      WHEN TIMESTAMP_DIFF(FORMAT_TIMESTAMP('%Y-%m-%d %H:%M:%S', current_timestamp()), updated_at_utc, MINUTE) < 10 
+      WHEN TIMESTAMP_DIFF(FORMAT_TIMESTAMP('%Y-%m-%d %H:%M:%S', current_timestamp()), updated_at_utc, MINUTE) < 2 
       THEN Null
-      ELSE 'Difference between updated_at and current timestamp is greater than 10 minutes'
+      ELSE 'Difference between updated_at and current timestamp is greater than 2 minutes'
     END AS error_message
   FROM
     {{ ref('raw_users') }}
